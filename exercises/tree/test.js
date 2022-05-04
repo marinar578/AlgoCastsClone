@@ -27,9 +27,18 @@ describe('Node', () => {
     n.remove('b');
     expect(n.children.length).toEqual(0);
   });
+
+  test('Node can remove more than one child at a time', () => {
+    const n = new Node('a');
+    n.add('b');
+    n.add('b')
+    expect(n.children.length).toEqual(2);
+    n.remove('b');
+    expect(n.children.length).toEqual(0);
+  });
 });
 
-describe.skip('Tree', () => {
+describe('Tree', () => {
   test('starts empty', () => {
     const t = new Tree();
     expect(t.root).toEqual(null);

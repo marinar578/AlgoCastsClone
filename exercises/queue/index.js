@@ -8,6 +8,36 @@
 //     q.add(1);
 //     q.remove(); // returns 1;
 
-class Queue {}
+class Queue {
+  constructor () {
+    this.data = [];
+  }
+
+  add (record) {
+    this.data.unshift(record);
+  }
+
+  remove (record) {
+    return this.data.pop();
+  }
+}
 
 module.exports = Queue;
+
+
+// my original, mistaken one, cuz i don't remember constructors:
+
+// class Queue {
+
+//     const queued = [];
+    
+//     function add(record) {
+//         queued.unshift(record);
+//     }
+    
+//     function remove() {
+//         return queued.pop();
+//     }
+    
+// }
+

@@ -23,3 +23,12 @@ test('calculates correct fib value for 4', () => {
 test('calculates correct fib value for 15', () => {
   expect(fib(39)).toEqual(63245986);
 });
+
+// test('calculates correct fib value for 1111', () => {
+//   expect(fib(39)).toEqual(63245986);
+// });
+
+
+// test('calculates correct fib value for 11110000', () => {
+//   expect(fib(39)).toEqual(63245986);
+// });

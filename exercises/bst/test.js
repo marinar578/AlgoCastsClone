@@ -15,6 +15,16 @@ test('Node can insert correctly', () => {
   expect(node.right.right.data).toEqual(17);
 });
 
+// test('existing node is not inserted', () => {
+//   const node = new Node(10);
+//   node.insert(5);
+//   node.insert(5);
+
+//   expect(node.left.data).toEqual(5);
+//   expect(node.right).toEqual(null);
+//   expect(node.left.left).toEqual(null);
+// });
+
 test('Contains returns node with the same data', () => {
   const node = new Node(10);
   node.insert(5);

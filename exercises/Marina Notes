@@ -1,0 +1,64 @@
+Notes
+
+- To use debugger
+  - put 'debugger;' in your js code
+  - in terminal, 
+      `node inspect filename`
+      `c` to continue through to debugger
+      `repl` to enter repl, which lets you inspect variable values
+      ctrl + c to exit
+      `c` to continue to next iteration of loop or next debugger instance
+      `repl` to enter repl to inspect variable values on next iteration
+
+
+- To open diagrams in Algo repo with draw.io:
+  - in terminal: `open diagrams.xml -a draw.io`
+
+
+- Recursion Tips
+  - Figure out the bare minimum pieces of information to represent your problem (what is the least amount of info/ arguments needed to give to the function the next time it is called)
+  - Give reasonable defaults (optional arguments that are defaulted to a specific value when nothing is passed) to the bare minimum pieces of info
+  - Check the base case. Is there any work left to do? If not, return.
+  - Do some work.
+  - Call your function again, making sure the arguments have changed in some fashion. If it doesn't change, we'll end up in an infinite recursion situation.
+
+  ex:
+
+  function printNum(n, dec = 1) {
+    if (n <= 0) {
+      return;
+    }
+
+    console.log(n);
+    printNum(n - dec);
+  }
+
+  printNum(10);
+  // should print 10,9,8,7,6,5,4,3,2,1
+
+  n -> bare min piece of info to function
+  dec -> reasonable default
+  n === 0 -> base case
+  console.log(n) -> some work
+  printNum(n-dec) -> call again, make sure arguments have changed
+
+  If asked for recursive solution in interview setting, try to figure out the iterative solution first to wrap head around logic and then do it recursively.
+
+- Memoization
+Working, Generic memoize function - apply to any function that needs to memoize it's arguments (originally created for recursive fibonacci function in fib/index.js):
+
+          function memoize(fn) {
+            const cache = {};
+
+            return function(...args) {
+              if (cache[args]) {
+                return cache[args];
+              } else {
+                const result = fn.apply(this, args);
+                cache[args] = result;
+                return result;
+              }
+            }
+          }
+
+
